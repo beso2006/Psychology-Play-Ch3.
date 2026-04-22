@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الفصل الثالث — العوامل المؤثرة في اللعب</title>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e1a;
+  --bg2: #0d1220;
+  --card: #111827;
+  --border: rgba(255,255,255,0.07);
+  --neon-blue: #00d4ff;
+  --neon-green: #00ff9d;
+  --neon-pink: #ff2d78;
+  --neon-yellow: #ffd600;
+  --neon-purple: #b44fff;
+  --neon-orange: #ff6d00;
+  --text: #e8eaf0;
+  --text-muted: #7a8396;
+  --text-soft: #b0b8cc;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+/* ===== NAV ===== */
+.nav{
+  position:fixed;top:0;right:0;left:0;z-index:999;
+  background:rgba(10,14,26,0.97);backdrop-filter:blur(20px);
+  padding:10px 20px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  border-bottom:1px solid rgba(0,212,255,0.2);
+}
+.nav-logo{font-family:'Almarai',sans-serif;font-weight:800;font-size:.9rem;color:var(--neon-blue);}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap;}
+.nav-links a{
+  padding:5px 14px;border-radius:4px;font-size:.72rem;font-weight:800;
+  text-decoration:none;transition:all .2s;border:1px solid;letter-spacing:.5px;
+}
+.nav-links a:nth-child(1){color:var(--neon-blue);border-color:var(--neon-blue);}
+.nav-links a:nth-child(2){color:var(--neon-green);border-color:var(--neon-green);}
+.nav-links a:nth-child(3){color:var(--neon-yellow);border-color:var(--neon-yellow);}
+.nav-links a:nth-child(4){color:var(--neon-pink);border-color:var(--neon-pink);}
+.nav-links a:nth-child(5){color:var(--neon-purple);border-color:var(--neon-purple);}
+.nav-links a:hover{color:#000!important;background:currentColor;}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;padding:100px 20px 60px;
+  background:var(--bg);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-dots{
+  position:absolute;inset:0;
+  background-image:radial-gradient(rgba(0,212,255,.08) 1px,transparent 1px);
+  background-size:30px 30px;
+}
+.hero-glow{
+  position:absolute;
+  border-radius:50%;filter:blur(80px);pointer-events:none;
+}
+.hero-glow:nth-child(2){width:400px;height:400px;background:rgba(0,212,255,.07);top:-100px;right:-100px;}
+.hero-glow:nth-child(3){width:300px;height:300px;background:rgba(0,255,157,.05);bottom:-50px;left:-50px;}
+.hero-inner{position:relative;z-index:2;text-align:center;max-width:700px;}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.3);
+  padding:6px 18px;border-radius:30px;font-size:.75rem;font-weight:800;
+  color:var(--neon-blue);letter-spacing:2px;margin-bottom:28px;
+}
+.hero-h1{
+  font-family:'Almarai',sans-serif;
+  font-size:clamp(2rem,6vw,4rem);font-weight:800;
+  line-height:1.15;margin-bottom:16px;
+}
+.hero-h1 .hl{
+  background:linear-gradient(90deg,var(--neon-blue),var(--neon-green));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-sub{color:var(--text-muted);font-size:1rem;margin-bottom:36px;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.hero-chip{
+  padding:5px 14px;border-radius:20px;font-size:.75rem;font-weight:700;
+  border:1px solid;
+}
+.hero-chip:nth-child(odd){color:var(--neon-green);border-color:rgba(0,255,157,.3);background:rgba(0,255,157,.05);}
+.hero-chip:nth-child(even){color:var(--neon-pink);border-color:rgba(255,45,120,.3);background:rgba(255,45,120,.05);}
+
+/* ===== SHARED ===== */
+.sec{padding:80px 0 60px;}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+.sec-header{margin-bottom:50px;}
+.sec-eyebrow{
+  display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:3px;
+  text-transform:uppercase;padding:4px 14px;border-radius:3px;margin-bottom:12px;
+}
+.sec-title{font-family:'Almarai',sans-serif;font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;line-height:1.2;}
+
+/* ===== SECTION 1 - EXPLAIN ===== */
+#explain{background:var(--bg);}
+.sec-eyebrow.blue{background:rgba(0,212,255,.1);color:var(--neon-blue);border:1px solid rgba(0,212,255,.2);}
+#explain .sec-title{color:#fff;}
+
+.factor-block{
+  border-radius:16px;padding:30px;margin-bottom:24px;
+  border:1px solid;position:relative;overflow:hidden;
+}
+.factor-block::before{
+  content:'';position:absolute;top:0;right:0;
+  width:3px;height:100%;
+}
+.fb-blue{border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.03);}
+.fb-blue::before{background:linear-gradient(180deg,var(--neon-blue),transparent);}
+.fb-green{border-color:rgba(0,255,157,.2);background:rgba(0,255,157,.03);}
+.fb-green::before{background:linear-gradient(180deg,var(--neon-green),transparent);}
+.fb-pink{border-color:rgba(255,45,120,.2);background:rgba(255,45,120,.03);}
+.fb-pink::before{background:linear-gradient(180deg,var(--neon-pink),transparent);}
+.fb-yellow{border-color:rgba(255,214,0,.2);background:rgba(255,214,0,.03);}
+.fb-yellow::before{background:linear-gradient(180deg,var(--neon-yellow),transparent);}
+.fb-purple{border-color:rgba(180,79,255,.2);background:rgba(180,79,255,.03);}
+.fb-purple::before{background:linear-gradient(180deg,var(--neon-purple),transparent);}
+.fb-orange{border-color:rgba(255,109,0,.2);background:rgba(255,109,0,.03);}
+.fb-orange::before{background:linear-gradient(180deg,var(--neon-orange),transparent);}
+
+.fb-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.fb-icon{
+  width:46px;height:46px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;
+}
+.fb-blue .fb-icon{background:rgba(0,212,255,.12);}
+.fb-green .fb-icon{background:rgba(0,255,157,.12);}
+.fb-pink .fb-icon{background:rgba(255,45,120,.12);}
+.fb-yellow .fb-icon{background:rgba(255,214,0,.12);}
+.fb-purple .fb-icon{background:rgba(180,79,255,.12);}
+.fb-orange .fb-icon{background:rgba(255,109,0,.12);}
+
+.fb-title{font-family:'Almarai',sans-serif;font-size:1.3rem;font-weight:800;}
+.fb-blue .fb-title{color:var(--neon-blue);}
+.fb-green .fb-title{color:var(--neon-green);}
+.fb-pink .fb-title{color:var(--neon-pink);}
+.fb-yellow .fb-title{color:var(--neon-yellow);}
+.fb-purple .fb-title{color:var(--neon-purple);}
+.fb-orange .fb-title{color:var(--neon-orange);}
+
+.fb-body{color:var(--text-soft);line-height:2;font-size:.98rem;}
+.fb-body p{margin-bottom:12px;}
+.fb-body strong{color:#fff;font-weight:700;}
+
+.info-box{
+  padding:16px 20px;border-radius:10px;margin:14px 0;font-size:.93rem;line-height:1.9;
+}
+.ib-blue{background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.2);color:rgba(0,212,255,.9);}
+.ib-green{background:rgba(0,255,157,.07);border:1px solid rgba(0,255,157,.2);color:rgba(0,255,157,.9);}
+.ib-pink{background:rgba(255,45,120,.08);border:1px solid rgba(255,45,120,.2);color:rgba(255,150,180,.95);}
+.ib-yellow{background:rgba(255,214,0,.07);border:1px solid rgba(255,214,0,.2);color:rgba(255,214,0,.9);}
+.ib-purple{background:rgba(180,79,255,.08);border:1px solid rgba(180,79,255,.2);color:rgba(200,150,255,.95);}
+.ib-orange{background:rgba(255,109,0,.08);border:1px solid rgba(255,109,0,.2);color:rgba(255,150,80,.95);}
+.ib-label{font-weight:900;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;display:block;}
+
+.divider{
+  display:flex;align-items:center;gap:16px;margin:40px 0 28px;
+}
+.div-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);}
+.div-text{font-size:.75rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);}
+
+.tags-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin:18px 0;}
+.tag-item{
+  padding:12px 14px;border-radius:10px;font-size:.88rem;
+  border:1px solid;display:flex;align-items:center;gap:8px;
+  color:var(--text-soft);
+}
+.tag-item.blue{border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.05);}
+.tag-item.green{border-color:rgba(0,255,157,.2);background:rgba(0,255,157,.05);}
+.tag-item.pink{border-color:rgba(255,45,120,.2);background:rgba(255,45,120,.05);}
+.tag-item.yellow{border-color:rgba(255,214,0,.2);background:rgba(255,214,0,.05);}
+.tag-item.purple{border-color:rgba(180,79,255,.2);background:rgba(180,79,255,.05);}
+.tag-item.orange{border-color:rgba(255,109,0,.2);background:rgba(255,109,0,.05);}
+.tag-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.blue .tag-dot{background:var(--neon-blue);}
+.green .tag-dot{background:var(--neon-green);}
+.pink .tag-dot{background:var(--neon-pink);}
+.yellow .tag-dot{background:var(--neon-yellow);}
+.purple .tag-dot{background:var(--neon-purple);}
+.orange .tag-dot{background:var(--neon-orange);}
+
+.iq-signs{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:16px;}
+.iq-sign{
+  padding:10px 14px;border-radius:8px;font-size:.87rem;
+  background:rgba(255,214,0,.06);border:1px solid rgba(255,214,0,.15);
+  color:var(--text-soft);display:flex;gap:8px;align-items:flex-start;
+}
+.iq-sign::before{content:'⭐';flex-shrink:0;font-size:.9rem;}
+
+.disability-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px;}
+.dis-card{
+  border-radius:14px;padding:22px;border:1px solid;
+}
+.dis-card.dc-blue{border-color:rgba(0,212,255,.25);background:rgba(0,212,255,.05);}
+.dis-card.dc-green{border-color:rgba(0,255,157,.25);background:rgba(0,255,157,.05);}
+.dis-card.dc-pink{border-color:rgba(255,45,120,.25);background:rgba(255,45,120,.05);}
+.dis-card.dc-yellow{border-color:rgba(255,214,0,.25);background:rgba(255,214,0,.05);}
+.dis-card.dc-purple{border-color:rgba(180,79,255,.25);background:rgba(180,79,255,.05);}
+.dis-card.dc-orange{border-color:rgba(255,109,0,.25);background:rgba(255,109,0,.05);}
+.dis-card.dc-teal{border-color:rgba(0,188,212,.25);background:rgba(0,188,212,.05);}
+.dc-title{font-weight:800;font-size:1rem;margin-bottom:12px;}
+.dc-blue .dc-title{color:var(--neon-blue);}
+.dc-green .dc-title{color:var(--neon-green);}
+.dc-pink .dc-title{color:var(--neon-pink);}
+.dc-yellow .dc-title{color:var(--neon-yellow);}
+.dc-purple .dc-title{color:var(--neon-purple);}
+.dc-orange .dc-title{color:var(--neon-orange);}
+.dc-teal .dc-title{color:#00bcd4;}
+.dc-body{color:var(--text-soft);font-size:.88rem;line-height:1.8;}
+
+/* ===== SECTION 2 - SUMMARY ===== */
+#summary{background:var(--bg2);}
+.sec-eyebrow.green{background:rgba(0,255,157,.08);color:var(--neon-green);border:1px solid rgba(0,255,157,.2);}
+#summary .sec-title{color:#fff;}
+
+.sum-mega-table{
+  width:100%;border-collapse:collapse;border-radius:14px;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(0,212,255,.15);
+}
+.sum-mega-table th{
+  padding:13px 16px;background:rgba(0,212,255,.1);color:var(--neon-blue);
+  font-size:.85rem;font-weight:800;text-align:right;
+  border-bottom:1px solid rgba(0,212,255,.2);
+}
+.sum-mega-table td{
+  padding:11px 16px;font-size:.85rem;color:var(--text-soft);
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.sum-mega-table tr:last-child td{border-bottom:none;}
+.sum-mega-table tr:hover td{background:rgba(0,212,255,.04);}
+.sum-mega-table td:first-child{font-weight:700;color:var(--text);}
+
+.sum-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-bottom:28px;}
+.sum-c{
+  border-radius:14px;padding:22px;border:1px solid;
+}
+.sum-c.s1{border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.04);}
+.sum-c.s2{border-color:rgba(0,255,157,.2);background:rgba(0,255,157,.04);}
+.sum-c.s3{border-color:rgba(255,45,120,.2);background:rgba(255,45,120,.04);}
+.sum-c.s4{border-color:rgba(255,214,0,.2);background:rgba(255,214,0,.04);}
+.sc-h{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.sc-icon{font-size:1.4rem;}
+.sc-t{font-weight:800;font-size:1rem;}
+.s1 .sc-t{color:var(--neon-blue);}
+.s2 .sc-t{color:var(--neon-green);}
+.s3 .sc-t{color:var(--neon-pink);}
+.s4 .sc-t{color:var(--neon-yellow);}
+.sc-list{list-style:none;}
+.sc-list li{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.87rem;color:var(--text-soft);line-height:1.7;display:flex;gap:8px;align-items:flex-start;}
+.sc-list li:last-child{border-bottom:none;}
+.sc-list li::before{content:'›';opacity:.5;flex-shrink:0;margin-top:1px;}
+
+/* TRICKS */
+.tricks-box{
+  background:linear-gradient(135deg,rgba(255,214,0,.05),rgba(255,109,0,.05));
+  border:1px solid rgba(255,214,0,.2);border-radius:18px;padding:34px;margin-top:36px;
+}
+.tricks-h{font-family:'Almarai',sans-serif;font-size:1.5rem;font-weight:800;color:var(--neon-yellow);margin-bottom:28px;border-bottom:1px solid rgba(255,214,0,.15);padding-bottom:14px;}
+.trick-r{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.trick-r:last-child{border-bottom:none;}
+.trick-n{font-family:'Almarai',sans-serif;font-size:2rem;font-weight:800;color:rgba(255,214,0,.2);line-height:1;width:36px;flex-shrink:0;text-align:center;}
+.trick-qq{font-weight:800;color:var(--neon-yellow);margin-bottom:8px;font-size:.97rem;}
+.trick-aa{color:var(--text-soft);font-size:.9rem;line-height:1.85;}
+.trick-lbl{display:inline-block;margin-top:8px;padding:2px 12px;border-radius:3px;font-size:.7rem;font-weight:800;letter-spacing:1px;background:rgba(255,214,0,.12);color:var(--neon-yellow);}
+
+/* ===== SECTION 3 - EXAM ===== */
+#exam{background:var(--bg);}
+.sec-eyebrow.yellow{background:rgba(255,214,0,.08);color:var(--neon-yellow);border:1px solid rgba(255,214,0,.2);}
+#exam .sec-title{color:#fff;}
+
+.exam-group-title{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 22px;border-radius:12px;margin:36px 0 22px;
+  font-size:1.1rem;font-weight:900;
+}
+.egt-tf{background:rgba(0,255,157,.07);border:1px solid rgba(0,255,157,.2);color:var(--neon-green);}
+.egt-mc{background:rgba(255,214,0,.07);border:1px solid rgba(255,214,0,.2);color:var(--neon-yellow);}
+
+.dc-pill{display:inline-block;padding:2px 10px;border-radius:3px;font-size:.67rem;font-weight:900;letter-spacing:1.5px;margin-bottom:10px;}
+.dp-e{background:rgba(0,255,157,.1);color:var(--neon-green);border:1px solid rgba(0,255,157,.2);}
+.dp-m{background:rgba(0,212,255,.1);color:var(--neon-blue);border:1px solid rgba(0,212,255,.2);}
+.dp-h{background:rgba(255,45,120,.1);color:var(--neon-pink);border:1px solid rgba(255,45,120,.2);}
+.dp-v{background:rgba(180,79,255,.1);color:var(--neon-purple);border:1px solid rgba(180,79,255,.2);}
+
+.qcard{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:14px;padding:20px 22px;margin-bottom:11px;
+  transition:border-color .25s;
+}
+.qcard:hover{border-color:rgba(0,212,255,.25);}
+.qrow{display:flex;align-items:flex-start;gap:12px;}
+.qnum{
+  width:32px;height:32px;border-radius:8px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:.82rem;
+}
+.qnum.tf-n{background:rgba(0,255,157,.1);color:var(--neon-green);}
+.qnum.mc-n{background:rgba(255,214,0,.1);color:var(--neon-yellow);}
+.qtxt{color:rgba(255,255,255,.85);font-size:.96rem;line-height:1.8;flex:1;}
+.tfbtn-row{display:flex;gap:10px;margin-top:12px;}
+.tfbtn{
+  padding:7px 24px;border-radius:7px;font-weight:800;font-size:.87rem;
+  border:1.5px solid;cursor:pointer;background:transparent;
+  font-family:'Tajawal',sans-serif;transition:all .22s;
+}
+.tfbtn.T{color:var(--neon-green);border-color:var(--neon-green);}
+.tfbtn.F{color:var(--neon-pink);border-color:var(--neon-pink);}
+.tfbtn.T:hover{background:var(--neon-green);color:#000;}
+.tfbtn.F:hover{background:var(--neon-pink);color:#000;}
+.mcopts{margin-top:12px;display:grid;gap:7px;}
+.mcopt{
+  padding:9px 14px;border-radius:8px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+  cursor:pointer;transition:all .22s;color:rgba(255,255,255,.75);
+  font-size:.88rem;text-align:right;font-family:'Tajawal',sans-serif;
+  display:flex;align-items:center;gap:9px;
+}
+.mcopt:hover{background:rgba(255,214,0,.1);border-color:rgba(255,214,0,.35);}
+.mcopt.sel{background:rgba(255,214,0,.14);border-color:var(--neon-yellow);color:var(--neon-yellow);}
+.olbl{
+  width:26px;height:26px;border-radius:5px;flex-shrink:0;
+  background:rgba(255,214,0,.1);color:var(--neon-yellow);
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem;
+}
+
+/* ===== SECTION 4 - ESSAYS ===== */
+#essays{background:var(--bg2);}
+.sec-eyebrow.pink{background:rgba(255,45,120,.08);color:var(--neon-pink);border:1px solid rgba(255,45,120,.2);}
+#essays .sec-title{color:#fff;}
+
+.essay-item{
+  background:var(--card);border-radius:16px;padding:26px 28px;margin-bottom:16px;
+  border:1px solid var(--border);position:relative;
+  transition:border-color .3s;
+}
+.essay-item:hover{border-color:rgba(255,45,120,.2);}
+.essay-num-badge{
+  position:absolute;top:-12px;right:22px;
+  padding:3px 14px;border-radius:4px;
+  font-size:.75rem;font-weight:900;
+  background:var(--neon-pink);color:#000;
+}
+.essay-q{font-size:.98rem;font-weight:700;color:#fff;line-height:1.8;margin-bottom:14px;}
+.essay-ta{
+  width:100%;min-height:100px;padding:11px 15px;
+  border:1.5px solid rgba(255,45,120,.2);border-radius:10px;
+  font-family:'Tajawal',sans-serif;font-size:.92rem;color:var(--text);
+  resize:vertical;outline:none;transition:border-color .3s;
+  background:rgba(255,45,120,.04);
+}
+.essay-ta:focus{border-color:var(--neon-pink);}
+.essay-ta::placeholder{color:#4a3040;}
+
+/* ===== ANSWERS ===== */
+#answers{background:var(--bg);}
+.sec-eyebrow.purple{background:rgba(180,79,255,.08);color:var(--neon-purple);border:1px solid rgba(180,79,255,.2);}
+#answers .sec-title{color:#fff;}
+.reveal-btn{
+  display:block;width:100%;padding:17px;
+  background:linear-gradient(90deg,var(--neon-purple),var(--neon-blue));
+  color:#000;font-size:1.05rem;font-weight:900;
+  border:none;border-radius:12px;cursor:pointer;
+  font-family:'Tajawal',sans-serif;margin-bottom:28px;
+  transition:transform .3s;letter-spacing:.5px;
+}
+.reveal-btn:hover{transform:scale(1.02);}
+.ans-box{display:none;}
+.ans-box.open{display:block;}
+.ans-sec-t{
+  font-size:1.1rem;font-weight:800;margin:24px 0 14px;padding-bottom:10px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.ans-tf-sec .ans-sec-t{color:var(--neon-green);}
+.ans-mc-sec .ans-sec-t{color:var(--neon-yellow);}
+.ans-es-sec .ans-sec-t{color:var(--neon-pink);}
+.ans-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:8px;margin-bottom:20px;}
+.ans-chip{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:9px 13px;
+  display:flex;align-items:center;gap:9px;
+}
+.ans-chip .nn{color:rgba(255,255,255,.3);font-size:.8rem;min-width:26px;}
+.ans-chip .vv{font-weight:900;font-size:.95rem;}
+.ans-chip.ok .vv{color:var(--neon-green);}
+.ans-chip.no .vv{color:var(--neon-pink);}
+.ans-chip.ch .vv{color:var(--neon-yellow);}
+.essay-ans-item{
+  background:rgba(255,45,120,.05);border:1px solid rgba(255,45,120,.15);
+  border-radius:12px;padding:16px 20px;margin-bottom:11px;
+}
+.eai-q{font-weight:800;color:rgba(255,120,160,.9);margin-bottom:8px;font-size:.9rem;}
+.eai-a{color:var(--text-soft);font-size:.88rem;line-height:1.85;}
+
+/* reveal scroll */
+.r{opacity:0;transform:translateY(25px);transition:all .6s ease;}
+.r.v{opacity:1;transform:translateY(0);}
+
+@media(max-width:600px){
+  .disability-grid{grid-template-columns:1fr;}
+  .ans-grid{grid-template-columns:repeat(2,1fr);}
+  .iq-signs{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-logo">⚡ الفصل الثالث</span>
+  <div class="nav-links">
+    <a href="#explain">📖 الشرح</a>
+    <a href="#summary">🎨 الملخص</a>
+    <a href="#exam">📝 أسئلة</a>
+    <a href="#essays">✍️ مقالي</a>
+    <a href="#answers">✅ إجابات</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-pill">📚 المهمة الأولى — الشرح الوافي</div>
+    <h1 class="hero-h1">الفصل <span class="hl">الثالث</span><br>العوامل المؤثرة في اللعب</h1>
+    <p class="hero-sub">شرح كامل لكل عامل طبيعي وبيئي وتأثير الإعاقة على اللعب</p>
+    <div class="hero-chips">
+      <span class="hero-chip">العوامل الطبيعية</span>
+      <span class="hero-chip">العوامل البيئية</span>
+      <span class="hero-chip">تأثير الإعاقة على اللعب</span>
+      <span class="hero-chip">الوراثة والذكاء</span>
+      <span class="hero-chip">الجنس والميول</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================
+     SECTION 1: EXPLANATION
+=================================================== -->
+<section id="explain" class="sec">
+<div class="wrap">
+  <div class="sec-header r">
+    <div class="sec-eyebrow blue">المهمة الأولى</div>
+    <div class="sec-title">الشرح الوافي والتفصيلي 📖</div>
+  </div>
+
+  <!-- مقدمة -->
+  <div class="factor-block fb-blue r">
+    <div class="fb-head"><div class="fb-icon">🌐</div><div class="fb-title">مقدمة: لماذا يختلف لعب الأطفال؟</div></div>
+    <div class="fb-body">
+      <p>اللعب هو أفضل وسط قادر على إتاحة فرصة استخدام الحواس والعقل — فمن خلاله يتعرف الطفل على ذاته ويطوره لعنته، ويعبر عن حاجاته. اللعب الجماعي يساهم في تنمية المشاركة الوجدانية والتضامن وضبط النفس واحترام النظام والتعاون.</p>
+      <p>يتخذ لعب الأطفال أشكالاً وأنماطاً متباينة — فالأطفال لا يلعبون بدرجة واحدة، وهناك مجموعة من العوامل تؤثر على اللعب ويمكن تلخيص أهمها فيما يلي:</p>
+      <div class="info-box ib-blue"><span class="ib-label">📌 تقسيم العوامل</span>العوامل تنقسم إلى قسمين رئيسيين: <strong>أولاً: العوامل الطبيعية</strong> (الوراثة — الصحة والتغذية — الجنس — الميول — الذكاء) | <strong>ثانياً: العوامل البيئية</strong> (المكان — المناخ — الحالة الاجتماعية والثقافية — أساليب المعاملة الوالدية)</div>
+    </div>
+  </div>
+
+  <div class="divider r"><div class="div-line"></div><div class="div-text">أولاً: العوامل الطبيعية</div><div class="div-line"></div></div>
+
+  <!-- [1] الوراثة -->
+  <div class="factor-block fb-blue r">
+    <div class="fb-head"><div class="fb-icon">🧬</div><div class="fb-title">[1] الوراثة</div></div>
+    <div class="fb-body">
+      <p>الوراثة هي <strong>انتقال الخصائص الجسدية من الآباء إلى الأبناء من خلال الجينات</strong>. تؤثر الوراثة على جميع جوانب المظهر الجسدي مثل الطول والوزن وبنية الجسم ولون العين وملمس الشعر، وحتى على <strong>الذكاء والقدرات</strong>. ويمكن أيضاً أن تنتقل الأمراض والحالات مثل أمراض القلب والسكري والسمنة وما إلى ذلك من خلال الجينات — مما يؤثر على نمو الطفل وتطوره وبالتالي على طبيعة الألعاب ومناسبتها.</p>
+      <p>اللعب نشاط يتطلب شروطاً عقلية وإدراكية وحيوية كالتوتر للحواس والقدرة على الاستجابة والحركة — والطفل الذي يمتلك ذلك يمتلك أعلى درجة من الاستعداد الطبيعي والحيوي للقيام بنشاط اللعب. في حين أن الطفل الذي فقد أي من حواسه أو قدراته كنتاج للعوامل الوراثية فقد لا يقوى على التفاعل مع كافة أنواع اللعب التي يتفاعل معها الطفل الطبيعي.</p>
+    </div>
+  </div>
+
+  <!-- [2] الصحة والتغذية -->
+  <div class="factor-block fb-green r">
+    <div class="fb-head"><div class="fb-icon">🥗</div><div class="fb-title">[2] الصحة العامة والتغذية السليمة</div></div>
+    <div class="fb-body">
+      <p>تعتبر التغذية عاملاً <strong>حاسماً في النمو</strong> — حيث إن كل ما يحتاجه الجسم لبناء وإصلاح نفسه يأتي من الطعام الذي يتناوله. ويمكن أن يسبب سوء التغذية أمراضاً تؤثر سلباً على نمو الأطفال وتطورهم. ومن ناحية أخرى، يمكن أن يؤدي الإفراط في تناول الطعام إلى <strong>السمنة ومشاكل صحية على المدى الطويل</strong>.</p>
+      <div class="info-box ib-green"><span class="ib-label">🥦 النظام الغذائي المتوازن</span>النظام الغذائي المتوازن الغني بالفيتامينات والمعادن والبروتينات والكربوهيدرات والدهون ضروري لنمو المخ والجسم معاً.</div>
+      <p>الجسم السليم صحياً وغذائياً يشكل مدخلاً فعّالاً أمام الطفل لكي يلعب ويمارس أنواع اللعب المختلفة دون الشعور بالإعياء والتعب. والطفل الذي لا يتغذى غذاءً سليماً يتناسب مع المرحلة النمائية قد لا يتمكن من ممارسة اللعب من الناحية الكمية أو النوعية — وتقل حيويته ويضعف نشاطه الدماغي بسبب نقص الدم والأكسجين إليها وغيره من المشكلات الصحية.</p>
+      <p>أما الطفل الذي يتمتع بصحة سليمة ونمط غذائي متوازن فيكون لديه القدرة على الاستمرار في ممارسة النشاط والإحساس بمتعة اللعب لفترات طويلة جداً — بل أحياناً يتجاهل الشعور بالجوع لشدة استمتاعه باللعب!</p>
+    </div>
+  </div>
+
+  <!-- [3] الجنس -->
+  <div class="factor-block fb-pink r">
+    <div class="fb-head"><div class="fb-icon">⚥</div><div class="fb-title">[3] الجنس</div></div>
+    <div class="fb-body">
+      <p>جنس الطفل هو عامل رئيسي آخر يؤثر على لعب الطفل ونوعيته — حيث ينمو الذكور والإناث بطرق مختلفة في النمو الجسمي والشكلي والميل والقدرات وأيضاً في أنماط وأسلوب التربية.</p>
+      <p>تبدأ الفروق بين الجنسين في اللعب من سن مبكرة — ولا سيما إذا كان الأطفال في أوساط قانوية مختلفة تبدأ فيها الألعاب المختلفة باختلاف الجنسين. ويلعب الجنس دوراً في النشاط اللعبي عند الأطفال منذ السنوات الأولى من حياتهم — <strong>فيُقدّم الولد على ألعاب تختلف في أغلب الأحيان عن الألعاب التي تُقدم عليها البنت</strong>.</p>
+      <div class="info-box ib-pink"><span class="ib-label">⚖️ واقع الفروق</span>الواقع أن مجتمعنا يضع فروقاً واضحة بين لعب الأولاد ولعب البنات — والكثير من هذه الفروق يعود إلى المؤثرات الثقافية والتوقعات من كل من الجنسين. فالصبي يكون موضع سخرية إذا أكثر من اللعب بالعرائس والبنات الأكبر سناً لا يُشجّعن على القيام بالألعاب الخشنة. وقد تغيّرت الفروق في لعب الأولاد والبنات في بعض الغرب إلى حد ما، في حين أن الطبقات الشعبية في بلدنا لا تزال تحافظ على الفروق الجنسية وتشجع الفروق الجنسية في اللعب منذ السنة الأولى في عمر الطفل.</div>
+    </div>
+  </div>
+
+  <!-- [4] الميول -->
+  <div class="factor-block fb-yellow r">
+    <div class="fb-head"><div class="fb-icon">🧲</div><div class="fb-title">[4] الميول</div></div>
+    <div class="fb-body">
+      <p>الميل هو <strong>استعداد فطري للفرد للاستغراق في نشاط معين</strong> يؤثر على سلوكه واختياراته حيث يجعله يبذل مجهوداً في سلوكٍ يشعره بالراحة.</p>
+      <p>الميل هو ضرب من الشعور بالاهتمام، وهو أسلوب من أساليب العقل ونحن نقول: إن شخصاً ما عنده ميل قوي لنشاط معين عندما يجد فيه راحته ولذته — وعندما يسعى دوماً نحوه والتقدّم عنه، وعندما يتولى برغبته أن يبذل كل جهده فيه. ولكننا عندما نكره نوعاً من النشاط فمعنى ذلك أننا لا ميل إليه في الغالب.</p>
+      <p>يظهر الميل في اللعب الأطفال عند اختيارهم وتقضيلهم لألعاب محددة من سن مبكرة — لكنها تتضح عندما يبلغ الطفل سن الخامسة حيث يستطيع التعبير عن اختيار ووصفه. وقد تتطور الميول للطفل مع السن وقد تظهر ميول أكبر في الطفل الذي يُفضّل السيارات وأنواعها ومكوناتها منذ طفولته وقد يهتم مهندساً للسيارات في المستقبل.</p>
+    </div>
+  </div>
+
+  <!-- [5] الذكاء -->
+  <div class="factor-block fb-yellow r">
+    <div class="fb-head"><div class="fb-icon">🧠</div><div class="fb-title">[5] الذكاء (ويُعرف بالاختصار: IQ)</div></div>
+    <div class="fb-body">
+      <p>الذكاء هو <strong>الدرجة الكلية المشتقة من عدة اختبارات قياسية مصممة لقياس الذكاء الإنساني</strong> — ومتوسط ذكاء الإنسان من 90 إلى 120 على منحنى التوزيع الطبيعي للذكاء.</p>
+      <p>وقد أظهرت الدراسات أن هناك فروقاً عديدة في لعب الأطفال الموهوبين أو المتفوقين عقلياً — فهم الذين يظهرون نسبة أعلى من أقرانهم على منحنى التوزيع الطبيعي للذكاء. فميولهم تتجه نحو <strong>الألعاب العقلية التركيبية والعلمية</strong> ولا يُفضلون الألعاب الساذجة، كما يؤثرون الألعاب التي تمر بعدة مراحل والألعاب المنافسة والألعاب التي تقع خارج إطار المنهج التعليمي.</p>
+      <div class="info-box ib-yellow"><span class="ib-label">🔻 على النقيض</span>على النقيض نجد الأطفال محدودي الذكاء يُفضّلون الألعاب النمطية الخالية من القواعد وغير المعقدة ويلعبون الأطفال الأصغر سناً منهم.</div>
+
+      <p style="margin-top:14px;"><strong style="color:var(--neon-yellow);">علامات قد تظهر على طفلك وتُشير إلى أنه أذكى من الأطفال الآخرين بنفس عمره الزمني ومن أبرزها:</strong></p>
+      <div class="iq-signs">
+        <div class="iq-sign">يُفضّل القراءة والتعلم أكثر من اللعب — يتعلم القراءة بسرعة ويرغب باقتناء الكتب</div>
+        <div class="iq-sign">ينخرط في الألعاب التي تحتاج للتفكير ولا يلتفت لباقي الألعاب</div>
+        <div class="iq-sign">مهارات الحفظ لديه قوية — يتذكر الأشياء لمرة واحدة ويُخطط كثيراً</div>
+        <div class="iq-sign">لديه القدرة على معالجة المعلومات الجديدة والمعقدة بسرعة</div>
+        <div class="iq-sign">لديه رغبة في استكشاف مواضيع محددة بعمق كبير</div>
+        <div class="iq-sign">لديه فضول كبير لا يُشبع</div>
+        <div class="iq-sign">لديه رغبة بتعلم الدروس التي تسبقه في المستويات الصغيرة</div>
+        <div class="iq-sign">يتميز بالعمق والعاطفة — روح الدعابة لديه ناضجة</div>
+        <div class="iq-sign">يكون مبدعاً وقادراً على اكتشاف حلول إبداعية ومتعددة للمشكلات</div>
+        <div class="iq-sign">ينتقل التعلم لديه بسهولة من خبرة قديمة إلى الخبرات الجديدة</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider r"><div class="div-line"></div><div class="div-text">ثانياً: العوامل البيئية</div><div class="div-line"></div></div>
+
+  <!-- [1] المكان -->
+  <div class="factor-block fb-purple r">
+    <div class="fb-head"><div class="fb-icon">📍</div><div class="fb-title">[1] المكان</div></div>
+    <div class="fb-body">
+      <p>يتأثر اللعب عند الأطفال بالمكان الذي يوجدون فيه — فمعظم الأطفال يلعبون في السنوات الأولى مع الأطفال الذين يجاورونهم، ويعود زمن ينتقلون إلى النوادي والساحات وللبيئة المحلية أثر واضح في اختيار الأطفال لأنواع ألعابهم وطراقها.</p>
+    </div>
+  </div>
+
+  <!-- [2] المناخ -->
+  <div class="factor-block fb-purple r">
+    <div class="fb-head"><div class="fb-icon">🌡️</div><div class="fb-title">[2] المناخ</div></div>
+    <div class="fb-body">
+      <p>يختلف نوع اللعب من مكان إلى آخر بحسب المناخ السائد — <strong>ففي المناطق الباردة التي يسود فيها الثلج تكثر ألعاب الأطفال بالتزلج على الثلج</strong>، في حين يكثر لعب الأطفال في الحدائق في المناطق ذات المناخ الحار أو المعتدل. لذلك نجد فروقاً بين ألعاب أطفال البيئة الساحلية والبيئة الزراعية والبيئة الصحراوية.</p>
+    </div>
+  </div>
+
+  <!-- [3] الحالة الاجتماعية والثقافية -->
+  <div class="factor-block fb-purple r">
+    <div class="fb-head"><div class="fb-icon">🏛️</div><div class="fb-title">[3] الحالة الاجتماعية والثقافية</div></div>
+    <div class="fb-body">
+      <p>تؤثر الحالة الاجتماعية والثقافية والقيم السائدة بالمجتمع في نوع الألعاب التي يزاولها الأطفال — ويتوارث الأطفال عن الأجيال السابقة أنواعاً من الألعاب الشائعة في المجتمع تبعاً لأحوالهم الاجتماعية والثقافية. إضافة إلى ذلك فإن <strong>الوضع الثقافي للأسرة يؤثر تأثيراً واضحاً في اختيار ألعاب أطفالها</strong>.</p>
+      <div class="info-box ib-purple"><span class="ib-label">💰 الفروق الطبقية</span>الأسر الميسورة مادياً وذات المستوى الثقافي المتميز تُولّي أطفالها الموسيقى والأنشطة المنظمة كالرحلات والمعسكرات. في حين أن أطفال الأسر الفقيرة والمتوسطة يزاولون الألعاب المتناسبة مع مستوياتهم الثقافية والمادية، وتتمثل في صنع أراجيحهم اعتماداً على أغصان الأشجار، أو مزاولة الألعاب التي تعتمد على الركض والسباق.</div>
+      <p>البيئات المنفتحة اجتماعياً التي لديها اتجاهات إيجابية نحو اللعب تسود عادات وتقاليد اجتماعية صحية تيسّر اللعب أمام الأطفال. والبيئات المغلقة والتي تحمل اتجاهات سلبية نحو عاب الأطفال وأهميتها في نمو الطفل قد لا تتيح الفرصة الكافية لممارسة نشاط اللعب.</p>
+      <p>وهناك أيضاً الألعاب ذات الموروثات الثقافية التي يمارسها الأطفال وتنتقل من جيل إلى آخر ومنها ما يحمل أفكاراً صحيحة ومنها ما يحمل أفكاراً خاطئة نتوارثها دون أن نعيد التفكير في اختيارها أو طريقة اللعب بها.</p>
+    </div>
+  </div>
+
+  <!-- [4] أساليب المعاملة الوالدية -->
+  <div class="factor-block fb-orange r">
+    <div class="fb-head"><div class="fb-icon">👨‍👩‍👧</div><div class="fb-title">[4] أساليب المعاملة الوالدية</div></div>
+    <div class="fb-body">
+      <p>تؤثر الأساليب التي يتعامل بها الأبوين مع أطفالهما في التربية على طريقة لعب أطفالهما ونوعية الألعاب التي يُفضّلونها.</p>
+      <p>يتأثر لعب الأطفال بمقدار الدفء العاطفي الذي يقدمه الآباء والأمهات — وكذلك أسلوب التشجيع والتعزيز الذي يجعل الأطفال يمارسون أنشطة لعبهم بطريقة طبيعية وتلقائية.</p>
+      <div class="info-box ib-orange"><span class="ib-label">🏃 الآباء العدوانيون</span>الآباء الذين يتصفون بالعدوانية يعملون على تشجيع الطفل على انتهاج هذا السلوك في اللعب — ويظهر ذلك من خلال ممارسته للعب المحاكاة مع الدمى والعرائس وفي الألعاب الجماعية والتعامل مع زملائه. وبالمقابل فإن الآباء الذين يتصفون بالهدوء يكون لعب المحاكاة عند الطفل يتسم بالطبع الهادئ والتوازن الانفعالي وعدم العنف.</div>
+      <p>وهناك حالات من الآباء والأمهات يتدخلون بصورة مباشرة في لعب الطفل ويوجهون العديد من الانتقادات الدائمة على تلقائية أطفالهم في ممارسة اللعب وإلخواطئهم الطبيعية — <strong>فيعزل الطفل عن اللعب الجماعي خوفاً من الخطأ والخسارة ويُفضّلون اللعب الفردي الانطوائي</strong> ثم ينعكس ذلك على السلوك الاجتماعي للطفل.</p>
+      <div class="info-box ib-orange"><span class="ib-label">📊 الخلاصة</span>رغم كون اللعب من سمات الطفولة العامة، فإن الفروق الفردية بين طفل وآخر مثل الحالة الجسمية والحالة الانفعالية والذكاءات المتعددة تؤثر بشكل واضح على اللعب. الطفل الهادئ ذو الخيال الخصب أقدر على ممارسة اللعب — وقد وجد سينجر أن الطفل ذا الخيال الخصب يمكن أن يجلس بهدوء لمدة أطول من تلك التي يمكنها الطفل ذو الخيال الأقل من حيث التخيل. فالطفل السليم جسدياً قادر على اللعب أكثر من المعتل جسدياً — ومنه فإن الأطفال ناقصي التغذية والعناية الصحية أقل لعباً وأكثر خمولاً.</div>
+    </div>
+  </div>
+
+  <div class="divider r"><div class="div-line"></div><div class="div-text">تأثير الإعاقة على اللعب</div><div class="div-line"></div></div>
+
+  <!-- تأثير الإعاقة -->
+  <div class="factor-block fb-orange r">
+    <div class="fb-head"><div class="fb-icon">♿</div><div class="fb-title">تأثير الإعاقة على اللعب — الأنواع السبعة</div></div>
+    <div class="fb-body">
+      <p>يختلف تأثير كل نوع من أنواع الإعاقة على لعب الطفل — وفيما يلي تفصيل كل نوع:</p>
+    </div>
+  </div>
+
+  <div class="disability-grid r">
+    <div class="dis-card dc-blue">
+      <div class="dc-title">🧠 اللعب والإعاقة العقلية</div>
+      <div class="dc-body">قد يحتاج الأطفال من هذه الفئة إلى تعلم اللعب — فيقوم المعلم بممارسة النشاط أمامهم كي يقوموا بتقليده، وهنا يجب أن يظهر المعلم نشاطاً وحيوية لحث الأطفال على اللعب.<br><br>يجب أن تكون اللعبة مناسبة للطفل — فلا تكون أكبر من قدراته ولا أقل منها حتى لا يملّ أو يُحطمها. وتناول الأشياء والكشف عنها لتحسين المهارات المعرفية مثل: كبير، صغير، خفيف، ثقيل.</div>
+    </div>
+    <div class="dis-card dc-pink">
+      <div class="dc-title">💭 اللعب والإعاقة الانفعالية</div>
+      <div class="dc-body">يعتقد كثيرون أن الأطفال من هذه الفئة غير قادرين على اللعب بسبب رغبتهم بالبقاء وحيدين وتكرار نفس السلوك دون إحداث أي تغييرات عليه — فمحاولة دمجهم بنشاط جديد قد يسبب لهم الإرباك والتوتر والإحساس بعدم الأمان.<br><br>إلا أن تقديم الأنواع المناسبة من الألعاب تساعد في جذبهم — كالدمى المتحركة. فالأطفال من هذه الفئة يميلون للعب بالدمى المتحركة ويتربّون عنها ويبتعدون عن الألعاب الجامدة، ويمكن دفعهم للعب الجماعي بشرط وضوح القواعد والتعليمات وبساطتها.</div>
+    </div>
+    <div class="dis-card dc-green">
+      <div class="dc-title">🦾 اللعب والإعاقة الجسمية</div>
+      <div class="dc-body">يجب في البداية إجراء تعديلات على الألعاب لكي يتمكن الطفل من اللعب بحرية ضمن قدراته دون إكراهه على وضع معين وإزالة كل العوائق من المكان.<br><br>وينبغي على المربي تشجيع الطفل على استخدام ذراعيه ورجليه. أما إذا كان غير قادر على استخدام ذراعيه فيجب تعديل الألعاب لتكون بالقدمين كالمكعبات. وإذا كان غير قادر على استخدام كلتا اليدين والرجلين فمن الممكن اختيار الألعاب التي يقوم بها بوجهه، كالنفخ على الزوارق الورقية في حوض ماء.</div>
+    </div>
+    <div class="dis-card dc-yellow">
+      <div class="dc-title">📚 اللعب وصعوبات التعلم</div>
+      <div class="dc-body">يمكن استخدام اللعب في علاج صعوبات التعلم — فيختار المعلمون ألعاباً حسب المادة التعليمية، كلعبة صيد السمك — فيوضع حوض ماء فيه أوراق بالأحرف أو الأرقام يقوم الطفل بالتقاطها بواسطة مشبك حديد.<br><br>وهناك العديد من الألعاب التي تعطي الطفل فرصاً للتعلم والنمو، كاللعب بالأشياء — فيكتشف الأشياء وخصائصها ويميزها عن غيرها من حيث لونها أو شكلها أو رائحتها أو الأصوات التي تصدر عنها، وهذا يعلمه العديد من المفاهيم مثل: كبير، صغير، خفيف، ثقيل.</div>
+    </div>
+    <div class="dis-card dc-purple">
+      <div class="dc-title">🏆 اللعب والتفوق العقلي</div>
+      <div class="dc-body">كما يمكن مع الأطفال استخدام الألعاب التي تنمي الخيال والذكاء والإبداع كاللعب التخيلي — وهو نوع من الألعاب التي تنمي الذكاء. والأطفال الذين يحبون هذا النوع من الألعاب يتصفون بالذكاء وبقدرات لغوية وإبداعية.</div>
+    </div>
+    <div class="dis-card dc-orange">
+      <div class="dc-title">👂 اللعب والإعاقة السمعية</div>
+      <div class="dc-body">يجب تهيئة مكان خاص بالأطفال الذين يستخدمون سماعة، بحيث يكون خالياً من الأصوات الدخيلة كي لا يكون هناك تشويش في الأصوات، والتأكد من سلامة السماعة قبل اللعب.<br><br>ومن المهم أن يقوم المربي بجذب انتباه الطفل له قبل الحديث معه وإعطائه فرصة للاستجابة، سواء بالإشارة أو بالتعبير اللفظي والثناء عليه بالتصفيق أو التربيت على الكتف لنقل المعاني الاجتماعية. أما بالنسبة لفاقدي السمع فيجب تعويضهم باستغلال الحواس الأخرى، كأن توضع أشياء تحت القماش ويحاول الطفل أن يحزر ما هي من خلال لمسها.</div>
+    </div>
+    <div class="dis-card dc-teal">
+      <div class="dc-title">👁️ اللعب والإعاقة البصرية</div>
+      <div class="dc-body">يُعد اللعب وسيلة هامة للكفيف للتعرف على العالم المحيط به والتعرف على محتوياته، وتعلّم أنماط سلوكية عديدة لتنمية قدراته بنفسه وتوسيع مداركه — كالألعاب الإلكترونية التي تساعد على تنمية التآزر بين الأذن واليد، والألعاب التركيبية التي تساعد على إثارة الخيال.<br><br><strong>مهما كان نوع الإعاقة ومهما كانت نوع اللعبة</strong> — على المربي أن يتذكر أن فترات اللعب القصيرة أكثر فائدة من الطويلة، والتي تنتهي غالباً بالملل والإحباط.</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ==================================================
+     SECTION 2: SUMMARY + TRICKS
+=================================================== -->
+<section id="summary" class="sec">
+<div class="wrap">
+  <div class="sec-header r">
+    <div class="sec-eyebrow green">المهمة الثانية والثالثة</div>
+    <div class="sec-title">الملخص البصري + التريكات 🎨💡</div>
+  </div>
+
+  <!-- SUMMARY CARDS -->
+  <div class="sum-cards r">
+    <div class="sum-c s1">
+      <div class="sc-h"><span class="sc-icon">⚙️</span><div class="sc-t">العوامل الطبيعية الخمسة</div></div>
+      <ul class="sc-list">
+        <li>الوراثة — انتقال الخصائص الجسدية والعقلية</li>
+        <li>الصحة والتغذية — جسم سليم = لعب سليم</li>
+        <li>الجنس — فروق في نوع وأسلوب اللعب</li>
+        <li>الميول — استعداد فطري للاستغراق في نشاط</li>
+        <li>الذكاء (IQ) — يتراوح المتوسط بين 90-120</li>
+      </ul>
+    </div>
+    <div class="sum-c s2">
+      <div class="sc-h"><span class="sc-icon">🌍</span><div class="sc-t">العوامل البيئية الأربعة</div></div>
+      <ul class="sc-list">
+        <li>المكان — الجوار يحدد رفاق اللعب الأوائل</li>
+        <li>المناخ — الثلج = تزلج، الحر = حدائق</li>
+        <li>الحالة الاجتماعية والثقافية — الأسرة الميسورة vs الفقيرة</li>
+        <li>أساليب المعاملة الوالدية — الدفء والتشجيع vs العدوانية</li>
+      </ul>
+    </div>
+    <div class="sum-c s3">
+      <div class="sc-h"><span class="sc-icon">♿</span><div class="sc-t">الإعاقة وأنواعها السبعة</div></div>
+      <ul class="sc-list">
+        <li>العقلية — التقليد والنشاط أمامهم + لعبة مناسبة</li>
+        <li>الانفعالية — الدمى المتحركة + قواعد واضحة</li>
+        <li>الجسمية — تعديل الألعاب + إزالة العوائق</li>
+        <li>صعوبات التعلم — صيد السمك والأشياء</li>
+        <li>التفوق العقلي — اللعب التخيلي والإبداعي</li>
+        <li>السمعية — بيئة خالية من الضوضاء + لمسية</li>
+        <li>البصرية — لعب إلكتروني + تركيبي + قصير</li>
+      </ul>
+    </div>
+    <div class="sum-c s4">
+      <div class="sc-h"><span class="sc-icon">📊</span><div class="sc-t">قاعدة ذهبية للمربي</div></div>
+      <ul class="sc-list">
+        <li>فترات اللعب القصيرة أكثر فائدة من الطويلة</li>
+        <li>الطفل الهادئ ذو الخيال أقدر على اللعب</li>
+        <li>الأطفال ناقصي التغذية أقل لعباً وأكثر خمولاً</li>
+        <li>الذكي يُفضل الألعاب العقلية والتنافسية</li>
+        <li>محدود الذكاء يُفضل الألعاب البسيطة النمطية</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="r">
+    <table class="sum-mega-table">
+      <thead><tr><th>نوع الإعاقة</th><th>طريقة اللعب المناسبة</th><th>دور المربي</th></tr></thead>
+      <tbody>
+        <tr><td>🧠 عقلية</td><td>تقليد الأنشطة + مفاهيم كبير/صغير</td><td>يمارس النشاط أمامهم بنشاط وحيوية</td></tr>
+        <tr><td>💭 انفعالية</td><td>الدمى المتحركة + لعب جماعي بسيط</td><td>قواعد واضحة وبسيطة</td></tr>
+        <tr><td>🦾 جسمية</td><td>تعديل الألعاب + نفخ / قدمين</td><td>إزالة العوائق وعدم الإكراه</td></tr>
+        <tr><td>📚 صعوبات تعلم</td><td>صيد السمك + لعب بالأشياء</td><td>اختيار ألعاب تناسب المادة</td></tr>
+        <tr><td>🏆 تفوق عقلي</td><td>اللعب التخيلي والإبداعي</td><td>توفير ألعاب تنمي الخيال والذكاء</td></tr>
+        <tr><td>👂 سمعية</td><td>إشارات + حواس أخرى (لمس)</td><td>جذب الانتباه + التصفيق والتربيت</td></tr>
+        <tr><td>👁️ بصرية</td><td>إلكتروني + تركيبي + سمعي</td><td>فترات قصيرة + تنمية التآزر الصوتي</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TRICKS -->
+  <div class="tricks-box r">
+    <div class="tricks-h">💡 التريكات والفروق الدقيقة — أكثر ما يخطئ فيه الطلاب!</div>
+
+    <div class="trick-r">
+      <div class="trick-n">1</div>
+      <div>
+        <div class="trick-qq">❓ ما الفرق بين الميل والذكاء كعاملين مؤثرين في اللعب؟</div>
+        <div class="trick-aa"><strong>الميل:</strong> استعداد فطري داخلي للاستغراق في نشاط يجلب الراحة والرضا.<br><strong>الذكاء:</strong> درجة موضوعية تُقاس بالاختبارات (IQ) وترتبط بنوع الألعاب المُفضّلة. الميل عاطفي/شعوري والذكاء معرفي/قياسي.</div>
+        <span class="trick-lbl">🔥 فرق دقيق</span>
+      </div>
+    </div>
+
+    <div class="trick-r">
+      <div class="trick-n">2</div>
+      <div>
+        <div class="trick-qq">❓ ما الذي يُميّز اللعب مع الإعاقة الانفعالية عن غيرها؟</div>
+        <div class="trick-aa">الخطأ الشائع: "الطفل الانفعالي لا يستطيع اللعب نهائياً".<br><strong>الصحيح:</strong> يُفضّل <strong>الدمى المتحركة</strong> ويبتعد عن الجامدة — ويمكن دفعه للعب الجماعي بشرط <strong>وضوح القواعد وبساطتها</strong>.</div>
+        <span class="trick-lbl">⚠️ خطأ شائع</span>
+      </div>
+    </div>
+
+    <div class="trick-r">
+      <div class="trick-n">3</div>
+      <div>
+        <div class="trick-qq">❓ ما الوسيلة الخاصة باللعب مع الإعاقة السمعية؟</div>
+        <div class="trick-aa">لفاقدي السمع تحديداً — توضع أشياء تحت القماش ويحاول الطفل أن يحزر ما هي <strong>من خلال لمسها</strong>. هذا هو المثال المحدد الذي يذكره الكتاب ويسأل عنه في الامتحانات.</div>
+        <span class="trick-lbl">📌 مثال محدد من الكتاب</span>
+      </div>
+    </div>
+
+    <div class="trick-r">
+      <div class="trick-n">4</div>
+      <div>
+        <div class="trick-qq">❓ ما الفرق بين طفل عالي الذكاء ومحدود الذكاء في اللعب؟</div>
+        <div class="trick-aa"><strong>عالي الذكاء:</strong> يُفضل ألعاباً عقلية تركيبية وعلمية، ألعاب متعددة المراحل، ألعاب تنافسية، خارج إطار المنهج.<br><strong>محدود الذكاء:</strong> يُفضل ألعاباً نمطية بسيطة خالية من القواعد، يلعب مع أطفال أصغر سناً منه.</div>
+        <span class="trick-lbl">🔥 سؤال متكرر</span>
+      </div>
+    </div>
+
+    <div class="trick-r">
+      <div class="trick-n">5</div>
+      <div>
+        <div class="trick-qq">❓ ما القاعدة الذهبية الأهم في اللعب مع جميع أنواع الإعاقات؟</div>
+        <div class="trick-aa">نصّ الكتاب صراحةً: <strong>"فترات اللعب القصيرة أكثر فائدة من الطويلة"</strong> — والتي تنتهي غالباً بالملل والإحباط. هذه القاعدة تنطبق على جميع أنواع الإعاقة دون استثناء.</div>
+        <span class="trick-lbl">💡 قاعدة ذهبية</span>
+      </div>
+    </div>
+
+    <div class="trick-r">
+      <div class="trick-n">6</div>
+      <div>
+        <div class="trick-qq">❓ ما الفرق بين تأثير أساليب الآباء العدوانيين والهادئين على لعب الطفل؟</div>
+        <div class="trick-aa"><strong>الآباء العدوانيون:</strong> يُنتج أطفالاً يمارسون لعب المحاكاة بعدوانية مع الدمى والعرائس والألعاب الجماعية.<br><strong>الآباء الهادئون:</strong> يكون لعب المحاكاة عند الطفل يتسم بالطبع الهادئ والتوازن الانفعالي وعدم العنف.</div>
+        <span class="trick-lbl">⚠️ علاقة مباشرة</span>
+      </div>
+    </div>
+
+    <div class="trick-r">
+      <div class="trick-n">7</div>
+      <div>
+        <div class="trick-qq">❓ لماذا يختلف لعب الأطفال الفقراء عن الأغنياء؟</div>
+        <div class="trick-aa">الأسر الغنية تُقدم للأطفال موسيقى وأنشطة منظمة ورحلات. أما أطفال الأسر الفقيرة والمتوسطة فيصنعون أراجيحهم من أغصان الأشجار أو يلعبون ألعاب الركض والسباق — لكن هذا لا يعني عدم الاستمتاع، فالطفل الفقير يبتكر لنفسه ألعاباً بسيطة ويُدخل عليها الجمال والإبداع.</div>
+        <span class="trick-lbl">💡 تحليل اجتماعي</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ==================================================
+     SECTION 3: EXAM
+=================================================== -->
+<section id="exam" class="sec">
+<div class="wrap">
+  <div class="sec-header r">
+    <div class="sec-eyebrow yellow">المهمة الرابعة</div>
+    <div class="sec-title">بنك أسئلة الامتحانات — 50 سؤالاً 📝</div>
+  </div>
+
+  <div class="exam-group-title egt-tf r">✅ القسم الأول: صح وخطأ — 25 سؤال</div>
+
+  <!-- TF EASY 1-7 -->
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum tf-n">1</div><div class="qtxt">الوراثة هي انتقال الخصائص الجسدية من الآباء إلى الأبناء من خلال الجينات.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum tf-n">2</div><div class="qtxt">التغذية عامل حاسم في النمو — والنظام الغذائي المتوازن ضروري لنمو المخ والجسم.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum tf-n">3</div><div class="qtxt">جنس الطفل لا يؤثر على نوع الألعاب التي يُفضّلها.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum tf-n">4</div><div class="qtxt">الميل هو استعداد فطري للفرد للاستغراق في نشاط معين يُشعره بالراحة.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum tf-n">5</div><div class="qtxt">متوسط ذكاء الإنسان يتراوح بين 90 و120 على منحنى التوزيع الطبيعي للذكاء.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum tf-n">6</div><div class="qtxt">يتأثر اللعب عند الأطفال بالمكان الذي يوجدون فيه ويلعبون في السنوات الأولى مع جيرانهم.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum tf-n">7</div><div class="qtxt">يجب أن تكون فترات اللعب الطويلة أكثر فائدة لذوي الإعاقات من الفترات القصيرة.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <!-- TF MEDIUM 8-14 -->
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum tf-n">8</div><div class="qtxt">يُفضّل الأطفال ذوو الذكاء المرتفع الألعاب النمطية البسيطة الخالية من القواعد.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum tf-n">9</div><div class="qtxt">تبدأ الفروق بين الجنسين في اللعب من سن مبكرة قد تظهر منذ السنة الأولى في عمر الطفل.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum tf-n">10</div><div class="qtxt">الأطفال من ذوي الإعاقة الانفعالية يُفضّلون اللعب بالدمى المتحركة ويبتعدون عن الألعاب الجامدة.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum tf-n">11</div><div class="qtxt">لفاقدي السمع يُفضّل وضع أشياء تحت القماش ليحاول الطفل تمييزها من خلال اللمس.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum tf-n">12</div><div class="qtxt">يجب على المعلم في اللعب مع ذوي الإعاقة العقلية أن يُظهر نشاطاً وحيوية لحث الأطفال على التقليد.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum tf-n">13</div><div class="qtxt">سوء التغذية يؤثر سلباً على نمو الأطفال ويُضعف نشاط الدماغ بسبب نقص الدم والأكسجين.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum tf-n">14</div><div class="qtxt">الآباء ذوو الأسلوب العدواني في التربية يُنتجون أطفالاً يتسم لعبهم بالهدوء والتوازن الانفعالي.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <!-- TF HARD 15-21 -->
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum tf-n">15</div><div class="qtxt">في اللعب مع ذوي الإعاقة الجسمية غير القادرين على استخدام اليدين والرجلين، يمكن اختيار ألعاب كالنفخ على الزوارق الورقية في حوض ماء.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum tf-n">16</div><div class="qtxt">وجد سينجر أن الطفل ذا الخيال الأقل يمكنه الجلوس بهدوء لفترات أطول من الطفل ذي الخيال الخصب.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum tf-n">17</div><div class="qtxt">الأطفال المتفوقون عقلياً يُفضّلون الألعاب التي تمر بعدة مراحل والألعاب التنافسية والألعاب خارج إطار المنهج التعليمي.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum tf-n">18</div><div class="qtxt">البيئات الاجتماعية المغلقة ذات الاتجاهات السلبية نحو اللعب تُتيح فرصاً كافية لممارسة نشاط اللعب.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum tf-n">19</div><div class="qtxt">اللعب التخيلي يُعدّ من الألعاب التي تنمي الخيال والذكاء والإبداع لدى الأطفال المتفوقين عقلياً.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum tf-n">20</div><div class="qtxt">تشير الدراسات أن أطفال الطبقات الفقيرة يتوجهون في ألعابهم إلى اللعب الإيهامي والرمزي كنوع من التعويض.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum tf-n">21</div><div class="qtxt">يمكن دفع الطفل ذي الإعاقة الانفعالية للعب الجماعي بشرط أن تكون القواعد معقدة ومتعددة.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <!-- TF VERY HARD 22-25 -->
+  <div class="qcard r"><div class="dc-pill dp-v">صعب جداً</div><div class="qrow"><div class="qnum tf-n">22</div><div class="qtxt">الخلاصة الشاملة للفصل تؤكد أن الآباء الذين يتدخلون بانتقادات دائمة في لعب الطفل يُنتجون أطفالاً ينجذبون للعب الجماعي ويتجنبون اللعب الفردي الانطوائي.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-v">صعب جداً</div><div class="qrow"><div class="qnum tf-n">23</div><div class="qtxt">وفق الفصل الثالث: التنشئة الاجتماعية للأطفال هي التي تُكسبهم الألعاب وأساليب سلوكية وأتجاهات يرضى عنها المجتمع الذين ينتمون إليه.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-v">صعب جداً</div><div class="qrow"><div class="qnum tf-n">24</div><div class="qtxt">يمكن لعلاج صعوبات التعلم استخدام لعبة صيد السمك حيث يوضع حوض ماء فيه أوراق بالأحرف أو الأرقام يلتقطها الطفل بمشبك حديد.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-v">صعب جداً</div><div class="qrow"><div class="qnum tf-n">25</div><div class="qtxt">اللعب هو جسر الحياة الذي يعبره الطفل ليتنقل بين الواقع والخيال ويُحقق ذاته — ولا بد للأهل من أن يمشوا وشاركوا أبناءهم عبور الجسر بأمان إلى المستقبل.</div></div><div class="tfbtn-row"><button class="tfbtn T">✓ صح</button><button class="tfbtn F">✗ خطأ</button></div></div>
+
+  <!-- MCQ -->
+  <div class="exam-group-title egt-mc r">🟡 القسم الثاني: اختيار من متعدد — 25 سؤال</div>
+
+  <!-- MCQ EASY 26-32 -->
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum mc-n">26</div><div class="qtxt">كم عدد العوامل الطبيعية التي يذكرها الفصل الثالث؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>ثلاثة</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>أربعة</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>خمسة</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>ستة</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum mc-n">27</div><div class="qtxt">ما متوسط ذكاء الإنسان الطبيعي وفق منحنى التوزيع الطبيعي؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>70-90</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>90-120</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>100-140</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>80-110</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum mc-n">28</div><div class="qtxt">ما اللعبة التي يُستخدم فيها حوض ماء وأوراق بالأحرف والأرقام ومشبك حديد؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>لعبة المكعبات</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>لعبة صيد السمك</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>لعبة البازل</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>لعبة العرائس</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum mc-n">29</div><div class="qtxt">ما نوع الإعاقة التي يُقال عنها أن أطفالها يُفضّلون الدمى المتحركة ويبتعدون عن الجامدة؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>العقلية</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>الجسمية</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>الانفعالية</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>السمعية</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum mc-n">30</div><div class="qtxt">ما الذي يُفيد تنمية التآزر بين الأذن واليد لدى ذوي الإعاقة البصرية؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>الألعاب الجماعية</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>الألعاب الإلكترونية</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>ألعاب الدمى المتحركة</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>ألعاب القواعد</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum mc-n">31</div><div class="qtxt">ما الذي تعتبره التغذية عاملاً حاسماً فيه؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>المناخ</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>النمو</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>الجنس</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>الوراثة</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-e">سهل</div><div class="qrow"><div class="qnum mc-n">32</div><div class="qtxt">كم عدد العوامل البيئية في الفصل الثالث؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>ثلاثة</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>أربعة</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>خمسة</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>ستة</button></div></div>
+
+  <!-- MCQ MEDIUM 33-39 -->
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum mc-n">33</div><div class="qtxt">ما الذي يُميّز الأطفال ذوي الذكاء المرتفع في لعبهم مقارنة بمحدودي الذكاء؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>يُفضّلون الألعاب النمطية البسيطة</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>يُفضّلون الألعاب العقلية التركيبية والألعاب المتعددة المراحل</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>يرفضون اللعب الجماعي</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>يلعبون مع أطفال أكبر سناً</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum mc-n">34</div><div class="qtxt">ما الفرق الذي يُشير إليه الكتاب بين لعب الأطفال في المناطق الباردة ومناطق المناخ الحار؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>الباردة تُفضّل الألعاب الجماعية والحارة تُفضّل الفردية</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>الباردة: تزلج على الثلج / الحارة: لعب في الحدائق</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>لا يوجد فرق يذكر</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>الباردة أقل نشاطاً</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum mc-n">35</div><div class="qtxt">ما الذي يُميّز لعب أطفال الأسر الميسورة عن أطفال الأسر الفقيرة؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>الميسورة: موسيقى وأنشطة منظمة / الفقيرة: أراجيح من أغصان وركض</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>الميسورة: ألعاب جماعية / الفقيرة: ألعاب فردية</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>الميسورة: ألعاب إلكترونية / الفقيرة: لا تلعب</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>لا فرق فالجميع يلعب بنفس الطريقة</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum mc-n">36</div><div class="qtxt">ما التعديل المذكور في الكتاب للطفل ذي الإعاقة الجسمية غير القادر على استخدام ذراعيه؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>تعديل الألعاب لتكون بالقدمين كالمكعبات</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>استخدام الألعاب الإلكترونية فقط</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>منعه من اللعب لحماية سلامته</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>استبدال اللعب بالتعليم الرسمي</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum mc-n">37</div><div class="qtxt">ما أهم شرط يجب توفره في اللعبة المقدمة للطفل ذي الإعاقة العقلية؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>أن تكون صعبة لتحفيزه</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>أن تكون مناسبة لقدراته — لا أكبر ولا أقل</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>أن تكون جماعية دائماً</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>أن تكون باهظة الثمن</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum mc-n">38</div><div class="qtxt">ما الذي تؤكد عليه الدراسات بخصوص أطفال البيئة الاجتماعية التنشئة الاجتماعية؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>هي التي تُكسبهم الألعاب وأساليب سلوكية يرضى عنها المجتمع</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>أنها لا تؤثر في نوع الألعاب</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>أنها تُقيّد اللعب الحر</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>أنها تُشجع اللعب الفردي فقط</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-m">متوسط</div><div class="qrow"><div class="qnum mc-n">39</div><div class="qtxt">ما الذي يُشير إليه الكتاب كأثر للتدخل الوالدي المفرط بانتقادات في لعب الطفل؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>يُشجع الطفل على اللعب الجماعي</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>يعزل الطفل عن اللعب الجماعي ويُفضّل اللعب الفردي الانطوائي</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>يُحسّن ثقة الطفل بنفسه</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>لا يُؤثر على السلوك الاجتماعي</button></div></div>
+
+  <!-- MCQ HARD 40-46 -->
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum mc-n">40</div><div class="qtxt">وجد سينجر أن الطفل ذا الخيال الخصب يستطيع أن يجلس بهدوء لمدة أطول — ما الذي يعنيه ذلك؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>الطفل الخيالي أكثر كسلاً</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>الخيال يُنمّي قدرة الطفل على ممارسة اللعب الداخلي الهادئ</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>الطفل الخيالي يكره اللعب الجماعي</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>الخيال لا علاقة له باللعب</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum mc-n">41</div><div class="qtxt">ما الذي تُنميه الألعاب التركيبية لذوي الإعاقة البصرية تحديداً؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>القدرة الحركية الكبرى</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>إثارة الخيال</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>المهارات الاجتماعية</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>تنمية حاسة التذوق</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum mc-n">42</div><div class="qtxt">ما الذي يعنيه الكتاب بـ"الموروثات الثقافية" في الألعاب؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>ألعاب تنتقل من جيل لآخر ومنها الصحيح ومنها الخاطئ</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>الألعاب المستوردة من الغرب</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>الألعاب الإلكترونية الحديثة</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>ألعاب خاصة بالأثرياء</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum mc-n">43</div><div class="qtxt">ما الذي يُميّز لعب الآباء الهادئين عن العدوانيين من حيث أثره على أطفالهم؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>الهادئون ينتجون أطفالاً أكثر عدوانية</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>الهادئون: لعب محاكاة يتسم بالهدوء والتوازن / العدوانيون: يُشجعون على السلوك العدواني</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>لا فرق في تأثيرهم</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>العدوانيون يُنتجون أطفالاً أكثر هدوءاً</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum mc-n">44</div><div class="qtxt">ما الذي يُعد اللعب جسراً له وفق خاتمة الفصل الثالث؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>بين الطفل والمعلم</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>بين الواقع والخيال — يتيح للطفل تحقيق ذاته</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>بين المنزل والمدرسة</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>بين الطفل ووالديه فقط</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum mc-n">45</div><div class="qtxt">لماذا يُشير الكتاب إلى أن الأطفال ناقصي التغذية أقل لعباً؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>لأنهم يُفضّلون الدراسة</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>بسبب نقص الدم والأكسجين للدماغ وضعف النشاط الحيوي</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>لأن والديهم يمنعونهم</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>لأنهم يلعبون بمفردهم</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-h">صعب</div><div class="qrow"><div class="qnum mc-n">46</div><div class="qtxt">ما دور المربي المهم مع الطفل ذي الإعاقة السمعية حين يريد التواصل معه؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>الحديث بصوت عالٍ جداً</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>جذب انتباه الطفل أولاً ثم إعطائه فرصة للاستجابة بالإشارة أو اللفظ</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>تجنب التواصل معه كلياً</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>استخدام الكتابة فقط</button></div></div>
+
+  <!-- MCQ VERY HARD 47-50 -->
+  <div class="qcard r"><div class="dc-pill dp-v">صعب جداً</div><div class="qrow"><div class="qnum mc-n">47</div><div class="qtxt">استناداً لمفهوم "الميول" — ما الذي يعنيه الكتاب بعبارة "الميل هو ضرب من الشعور بالاهتمام وهو أسلوب من أساليب العقل"؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>الميل مجرد عادة متكررة</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>الميل يجمع بين الجانب العاطفي (الشعور) والجانب المعرفي (العقل) في توجيه السلوك</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>الميل ينشأ فقط من التدريب والتعلم</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>الميل لا يتطور مع الطفل</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-v">صعب جداً</div><div class="qrow"><div class="qnum mc-n">48</div><div class="qtxt">ما المعنى العميق لقول الكتاب "اللعب هو جسر الحياة الذي يعبره الطفل بين الواقع والخيال"؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>اللعب وسيلة للهروب من الواقع</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>اللعب يُمكّن الطفل من اختبار المواقف والتجارب بأمان بين الخيال والواقع مما يُحقق ذاته ويُعدّه للمستقبل</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>اللعب مجرد تسلية بلا هدف</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>اللعب يُعيق التطور الواقعي للطفل</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-v">صعب جداً</div><div class="qrow"><div class="qnum mc-n">49</div><div class="qtxt">لماذا يُعدّ الوضع الثقافي والاجتماعي للأسرة من أهم العوامل المؤثرة في اللعب وفق الفصل؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>لأنه يُحدد عدد الألعاب فقط</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>لأنه يُحدد اتجاهات الأسرة نحو اللعب وأنواع الألعاب ومدى توفرها وتشجيعها</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>لأن الثقافة لا علاقة لها باللعب</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>لأنه يُعيّن صديق اللعب المناسب فقط</button></div></div>
+
+  <div class="qcard r"><div class="dc-pill dp-v">صعب جداً</div><div class="qrow"><div class="qnum mc-n">50</div><div class="qtxt">بمقارنة العوامل الطبيعية والبيئية — أيٌّ من العبارات التالية يمثل الاستنتاج الصحيح الذي يخلص إليه الفصل الثالث؟</div></div><div class="mcopts"><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">أ</span>العوامل الطبيعية هي الأهم والبيئية ثانوية</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ب</span>مسار اللعب يُبنى على مجموع هذه العوامل جميعاً — طبيعية وبيئية معاً</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">ج</span>العوامل البيئية وحدها تُحدد طبيعة اللعب</button><button class="mcopt" onclick="this.classList.toggle('sel')"><span class="olbl">د</span>الإعاقة هي المحدد الوحيد لنوع اللعب</button></div></div>
+
+</div>
+</section>
+
+<!-- ==================================================
+     SECTION 4: ESSAYS
+=================================================== -->
+<section id="essays" class="sec">
+<div class="wrap">
+  <div class="sec-header r">
+    <div class="sec-eyebrow pink">المهمة الخامسة</div>
+    <div class="sec-title">الأسئلة المقالية — 10 أسئلة حفظية ✍️</div>
+  </div>
+
+  <div class="essay-item r"><div class="essay-num-badge">السؤال 1</div><div class="essay-q">اذكر العوامل الطبيعية الخمسة المؤثرة في اللعب كما وردت في الفصل الثالث مع تعريف الميل والذكاء (IQ).</div><textarea class="essay-ta" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+  <div class="essay-item r"><div class="essay-num-badge">السؤال 2</div><div class="essay-q">ما تأثير سوء التغذية وما تأثير الجسم السليم على لعب الطفل؟ اذكر المعلومات كما وردت في الكتاب.</div><textarea class="essay-ta" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+  <div class="essay-item r"><div class="essay-num-badge">السؤال 3</div><div class="essay-q">فرّق بين لعب الأطفال ذوي الذكاء المرتفع ولعب الأطفال محدودي الذكاء مع ذكر علامات الطفل الذكي في اللعب.</div><textarea class="essay-ta" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+  <div class="essay-item r"><div class="essay-num-badge">السؤال 4</div><div class="essay-q">اذكر العوامل البيئية الأربعة المؤثرة في اللعب مع توضيح تأثير المناخ والحالة الاجتماعية والثقافية.</div><textarea class="essay-ta" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+  <div class="essay-item r"><div class="essay-num-badge">السؤال 5</div><div class="essay-q">كيف تؤثر أساليب المعاملة الوالدية على لعب الطفل؟ فرّق بين تأثير الآباء العدوانيين والهادئين والمتدخّلين.</div><textarea class="essay-ta" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+  <div class="essay-item r"><div class="essay-num-badge">السؤال 6</div><div class="essay-q">اذكر أنواع الإعاقات السبعة التي تناولها الفصل مع ذكر أسلوب اللعب المناسب لكل منها.</div><textarea class="essay-ta" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+  <div class="essay-item r"><div class="essay-num-badge">السؤال 7</div><div class="essay-q">ما الطريقة الخاصة التي يذكرها الكتاب لمساعدة فاقدي السمع في اللعب؟ وما المكان الذي يجب تهيئته لمستخدمي السماعة؟</div><textarea class="essay-ta" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+  <div class="essay-item r"><div class="essay-num-badge">السؤال 8</div><div class="essay-q">كيف يمكن استخدام اللعب في علاج صعوبات التعلم؟ اذكر المثال المحدد الذي ذكره الكتاب.</div><textarea class="essay-ta" placeholder="aكتب إجابتك هنا..."></textarea></div>
+
+  <div class="essay-item r"><div class="essay-num-badge">السؤال 9</div><div class="essay-q">ما القاعدة الذهبية الخاصة بمدة اللعب لذوي الإعاقات التي نصّ عليها الكتاب صراحةً؟ ولماذا؟</div><textarea class="essay-ta" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+  <div class="essay-item r"><div class="essay-num-badge">السؤال 10</div><div class="essay-q">ما الاستنتاج العام الذي يختم به الكتاب الفصل الثالث عن دور اللعب في حياة الطفل وعلاقته بالواقع والخيال؟</div><textarea class="essay-ta" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+</div>
+</section>
+
+<!-- ==================================================
+     ANSWERS
+=================================================== -->
+<section id="answers" class="sec">
+<div class="wrap">
+  <div class="sec-header r">
+    <div class="sec-eyebrow purple">الإجابات</div>
+    <div class="sec-title">نموذج الإجابات الكاملة ✅</div>
+  </div>
+
+  <button class="reveal-btn" onclick="document.getElementById('ansb').classList.toggle('open');this.textContent=this.textContent.includes('كشف')?'🙈 إخفاء الإجابات':'🎯 كشف الإجابات — هل اختبرت نفسك؟'">
+    🎯 كشف الإجابات — هل اختبرت نفسك؟
+  </button>
+
+  <div id="ansb" class="ans-box">
+
+    <div class="ans-tf-sec">
+      <div class="ans-sec-t">✅ إجابات الصح والخطأ (1-25)</div>
+      <div class="ans-grid">
+        <div class="ans-chip ok"><span class="nn">1</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip ok"><span class="nn">2</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip no"><span class="nn">3</span><span class="vv">✗ خطأ</span></div>
+        <div class="ans-chip ok"><span class="nn">4</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip ok"><span class="nn">5</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip ok"><span class="nn">6</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip no"><span class="nn">7</span><span class="vv">✗ خطأ</span></div>
+        <div class="ans-chip no"><span class="nn">8</span><span class="vv">✗ خطأ</span></div>
+        <div class="ans-chip ok"><span class="nn">9</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip ok"><span class="nn">10</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip ok"><span class="nn">11</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip ok"><span class="nn">12</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip ok"><span class="nn">13</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip no"><span class="nn">14</span><span class="vv">✗ خطأ</span></div>
+        <div class="ans-chip ok"><span class="nn">15</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip no"><span class="nn">16</span><span class="vv">✗ خطأ</span></div>
+        <div class="ans-chip ok"><span class="nn">17</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip no"><span class="nn">18</span><span class="vv">✗ خطأ</span></div>
+        <div class="ans-chip ok"><span class="nn">19</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip ok"><span class="nn">20</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip no"><span class="nn">21</span><span class="vv">✗ خطأ</span></div>
+        <div class="ans-chip no"><span class="nn">22</span><span class="vv">✗ خطأ</span></div>
+        <div class="ans-chip ok"><span class="nn">23</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip ok"><span class="nn">24</span><span class="vv">✓ صح</span></div>
+        <div class="ans-chip ok"><span class="nn">25</span><span class="vv">✓ صح</span></div>
+      </div>
+    </div>
+
+    <div class="ans-mc-sec">
+      <div class="ans-sec-t">🟡 إجابات الاختيار من متعدد (26-50)</div>
+      <div class="ans-grid">
+        <div class="ans-chip ch"><span class="nn">26</span><span class="vv">ج</span></div>
+        <div class="ans-chip ch"><span class="nn">27</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">28</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">29</span><span class="vv">ج</span></div>
+        <div class="ans-chip ch"><span class="nn">30</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">31</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">32</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">33</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">34</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">35</span><span class="vv">أ</span></div>
+        <div class="ans-chip ch"><span class="nn">36</span><span class="vv">أ</span></div>
+        <div class="ans-chip ch"><span class="nn">37</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">38</span><span class="vv">أ</span></div>
+        <div class="ans-chip ch"><span class="nn">39</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">40</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">41</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">42</span><span class="vv">أ</span></div>
+        <div class="ans-chip ch"><span class="nn">43</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">44</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">45</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">46</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">47</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">48</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">49</span><span class="vv">ب</span></div>
+        <div class="ans-chip ch"><span class="nn">50</span><span class="vv">ب</span></div>
+      </div>
+    </div>
+
+    <div class="ans-es-sec">
+      <div class="ans-sec-t">✍️ نماذج الإجابات المقالية</div>
+
+      <div class="essay-ans-item"><div class="eai-q">س1: العوامل الطبيعية الخمسة</div><div class="eai-a">العوامل الطبيعية: (1) الوراثة — انتقال الخصائص الجسدية عبر الجينات. (2) الصحة العامة والتغذية السليمة. (3) الجنس — فروق بين الذكور والإناث. (4) الميول — استعداد فطري للاستغراق في نشاط يُشعر بالراحة. (5) الذكاء (IQ) — الدرجة الكلية المشتقة من اختبارات قياسية لقياس الذكاء الإنساني ومتوسطه 90-120.</div></div>
+
+      <div class="essay-ans-item"><div class="eai-q">س2: تأثير التغذية على اللعب</div><div class="eai-a">سوء التغذية يؤثر سلباً على نمو الأطفال وتطورهم ويمكن أن يُسبب أمراضاً — كما يُضعف نشاط الدماغ بسبب نقص الدم والأكسجين إليها. الطفل سيء التغذية قد لا يتمكن من ممارسة اللعب من الناحية الكمية أو النوعية. أما الطفل السليم صحياً فيكون لديه القدرة على الاستمرار في ممارسة اللعب لفترات طويلة جداً، بل أحياناً يتجاهل الشعور بالجوع لشدة استمتاعه باللعب.</div></div>
+
+      <div class="essay-ans-item"><div class="eai-q">س3: ذوو الذكاء المرتفع ومحدودو الذكاء</div><div class="eai-a">عالي الذكاء: يُفضل الألعاب العقلية التركيبية والعلمية، الألعاب المتعددة المراحل، الألعاب التنافسية، والألعاب خارج إطار المنهج. محدود الذكاء: يُفضل الألعاب النمطية الخالية من القواعد وغير المعقدة ويلعب مع أطفال أصغر سناً. علامات الطفل الذكي: يُفضل القراءة والتعلم، لديه حفظ قوي، يعالج المعلومات بسرعة، فضوله كبير، يتميز بالعمق والعاطفة، يكون مبدعاً، ينتقل التعلم لديه بسهولة بين الخبرات.</div></div>
+
+      <div class="essay-ans-item"><div class="eai-q">س4: العوامل البيئية الأربعة</div><div class="eai-a">العوامل البيئية: (1) المكان — الجوار يحدد رفاق اللعب. (2) المناخ — الثلج = تزلج، الحر = حدائق، فروق بين البيئة الساحلية والزراعية والصحراوية. (3) الحالة الاجتماعية والثقافية — الأسر الميسورة: موسيقى وأنشطة منظمة / الفقيرة: أراجيح من أغصان وركض. (4) أساليب المعاملة الوالدية — الدفء والتشجيع يُنتج لعباً تلقائياً طبيعياً.</div></div>
+
+      <div class="essay-ans-item"><div class="eai-q">س5: أساليب المعاملة الوالدية</div><div class="eai-a">الآباء العدوانيون: يُشجعون الطفل على السلوك العدواني في اللعب — يظهر في المحاكاة مع الدمى والألعاب الجماعية. الآباء الهادئون: لعب المحاكاة عند الطفل يتسم بالهدوء والتوازن الانفعالي وعدم العنف. الآباء المتدخّلون بانتقادات دائمة: يعزلون الطفل عن اللعب الجماعي خوفاً من الخطأ والخسارة ويُفضّلون اللعب الفردي الانطوائي ثم ينعكس ذلك على السلوك الاجتماعي للطفل.</div></div>
+
+      <div class="essay-ans-item"><div class="eai-q">س6: أنواع الإعاقات السبعة وأسلوب اللعب</div><div class="eai-a">(1) العقلية: تقليد النشاط + لعبة مناسبة لقدراته. (2) الانفعالية: الدمى المتحركة + قواعد واضحة وبسيطة. (3) الجسمية: تعديل الألعاب + استخدام القدمين أو الوجه كالنفخ. (4) صعوبات التعلم: لعبة صيد السمك + تعلم بالأشياء. (5) التفوق العقلي: اللعب التخيلي والإبداعي. (6) السمعية: بيئة خالية من الضوضاء + جذب الانتباه + لمس للفاقدين. (7) البصرية: إلكتروني + تركيبي + فترات قصيرة.</div></div>
+
+      <div class="essay-ans-item"><div class="eai-q">س7: اللعب مع الإعاقة السمعية</div><div class="eai-a">لفاقدي السمع: توضع أشياء تحت القماش ويحاول الطفل أن يحزر ما هي من خلال لمسها. لمستخدمي السماعة: يجب تهيئة مكان خاص بهم يكون خالياً من الأصوات الدخيلة كي لا يكون هناك تشويش في الأصوات، والتأكد من سلامة السماعة قبل اللعب.</div></div>
+
+      <div class="essay-ans-item"><div class="eai-q">س8: اللعب وصعوبات التعلم</div><div class="eai-a">يمكن استخدام اللعب في علاج صعوبات التعلم — فيختار المعلمون ألعاباً حسب المادة التعليمية. المثال المحدد في الكتاب: لعبة صيد السمك — حيث يُوضع حوض ماء فيه أوراق بالأحرف أو الأرقام يقوم الطفل بالتقاطها بواسطة مشبك حديد.</div></div>
+
+      <div class="essay-ans-item"><div class="eai-q">س9: القاعدة الذهبية لمدة اللعب</div><div class="eai-a">نصّ الكتاب صراحةً: "مهما كان نوع الإعاقة ومهما كانت نوع اللعبة — على المربي أن يتذكر أن فترات اللعب القصيرة أكثر فائدة من الطويلة والتي تنتهي غالباً بالملل والإحباط." السبب: الفترات الطويلة تُرهق الطفل ذا الإعاقة وتُفضي إلى الإحباط مما يُنفّره من اللعب.</div></div>
+
+      <div class="essay-ans-item"><div class="eai-q">س10: الخاتمة العامة للفصل</div><div class="eai-a">يختم الكتاب الفصل بأن: "اللعب هو جسر الحياة الذي يعبره الطفل ليتنقل بين الواقع والخيال ويُحقق ذاته عن طريق العبور على هذا الجسر ويُثبت وجوده ومكانه — ولا بد للأهل من أن يمشوا وشاركوا أبناءهم عبور الجسر بأمان إلى المستقبل."</div></div>
+
+    </div>
+  </div>
+</div>
+</section>
+
+<script>
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v');});
+},{threshold:0.07});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
